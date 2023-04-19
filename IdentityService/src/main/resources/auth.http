@@ -1,0 +1,22 @@
+POST localhost:9898/auth/register
+Content-Type: application/json
+
+{
+  "name": "Ali",
+  "username": "ali",
+  "password": "123"
+}
+
+###
+
+POST localhost:9898/auth/token
+Content-Type: application/json
+
+{
+  "username": "ali",
+  "password": "123"
+}
+
+###
+
+GET localhost:9898/auth/validate?token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huIiwiaWF0IjoxNjgxODk5NzY0LCJleHAiOjE2ODE5MDE1NjR9.1C7eErkzZk-gfQWuA5qpevQOQiT4zhkDkCTy-7rsI-U

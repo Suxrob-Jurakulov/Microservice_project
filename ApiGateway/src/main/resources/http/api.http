@@ -1,0 +1,54 @@
+POST localhost:8083/auth/register
+Content-Type: application/json
+
+{
+  "name": "John",
+  "username": "john",
+  "password": "123"
+}
+
+###
+
+POST localhost:8083/auth/token
+Content-Type: application/json
+
+{
+  "username": "john",
+  "password": "123"
+}
+
+###
+
+POST localhost:8083/demo1/profile/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huIiwiaWF0IjoxNjgxOTAyOTcyLCJleHAiOjE2ODE5MDQ3NzJ9.xGk3t0Y2_dZivvLDX3ptLRFKmTBask1ytLeMIT94bcY
+
+{
+  "name": "Tom",
+  "username": "tom",
+  "password": "123"
+}
+
+###
+
+GET localhost:8083/demo1/profile/get
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huIiwiaWF0IjoxNjgxOTA4NTczLCJleHAiOjE2ODE5MTAzNzN9.zCzPCf6pDNo8G-aCgXBtVK6_d1FPD98bVIbnt4lbcX0
+
+###
+
+POST localhost:8083/demo1/user/update?name=john
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huIiwiaWF0IjoxNjgxOTI3NDczLCJleHAiOjE2ODE5MjkyNzN9.bHw5Sk56FOfmG8Dc_QUk_ZYq7TNb6df_Zrap0VbZc6I
+
+{
+  "name": "Ali",
+  "username": "ali",
+  "password": "1234"
+}
+
+
+###
+
+
+DELETE localhost:8083/demo1/user/delete?name=ali
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huIiwiaWF0IjoxNjgxOTI3NDczLCJleHAiOjE2ODE5MjkyNzN9.bHw5Sk56FOfmG8Dc_QUk_ZYq7TNb6df_Zrap0VbZc6I

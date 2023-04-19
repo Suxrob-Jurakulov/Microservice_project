@@ -1,0 +1,34 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: API-G
+
+  cloud:
+    gateway:
+      routes:
+        - id: demo2
+          uri: lb://DEMO2
+          predicates:
+            - Path=/demo2/**
+          filters:
+            - AuthenticationFilter
+
+        - id: demo1
+          uri: lb://DEMO1
+          predicates:
+            - Path=/demo1/**
+          filters:
+            - AuthenticationFilter
+
+        - id: identity-service
+          uri: lb://IDENTITY-SERVICE
+          predicates:
+            - Path=/auth/**
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone : http://localhost:8761/eureka/
